@@ -1,5 +1,5 @@
 {
-  "name": "backend-lib",
+  "name": "@open-game-server-host/backend-lib",
   "version": "1.0.0",
   "description": "",
   "repository": {
@@ -7,7 +7,7 @@
     "url": "git+https://github.com/open-game-server-host/backend-lib.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/"
   },
   "dependencies": {
     "express": "^5.2.1",

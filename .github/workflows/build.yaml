@@ -18,13 +18,15 @@ jobs:
       uses: actions/setup-node@v6
       with:
         node-version: 25
-        registry-url: https://npm.pkg.github.com/open-game-server-host/
-        token: ${{ secrets.GITHUB_TOKEN }}
+        registry-url: https://npm.pkg.github.com/
+    - name: npm login
+      run: npm login --auth-type legacy
     - name: Publish
       run: |
-        echo "@opengameserverhost:registry=https://npm.pkg.github.com/open-game-server-host/" >> .npmrc
-        echo "//npm.pkg.github.com/open-game-server-host/:_authToken=\"$TOKEN\"" >> .npmrc
-        echo "//npm.pkg.github.com/open-game-server-host/:always-auth=true" >> .npmrc
+        echo "@open-game-server-host:registry=https://npm.pkg.github.com/" >> .npmrc
+        echo "//npm.pkg.github.com/:_authToken=\"$TOKEN\"" >> .npmrc
+        echo "//npm.pkg.github.com/:always-auth=true" >> .npmrc
+        echo "TOKEN: $TOKEN"
       env:
         TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: npm i
