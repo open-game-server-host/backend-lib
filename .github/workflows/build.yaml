@@ -25,6 +25,7 @@ jobs:
         echo "//npm.pkg.github.com/open-game-server-host/:_authToken=$TOKEN" >> .npmrc
         echo "@OPENGAMESERVERHOST:registry=https://npm.pkg.github.com/open-game-server-host/" >> .npmrc
         echo "always-auth=true" >> .npmrc
+        ls -l
       env:
         TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: npm i
