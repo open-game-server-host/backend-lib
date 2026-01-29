@@ -1,6 +1,6 @@
 {
   "name": "@open-game-server-host/backend-lib",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "repository": {
     "type": "git",
@@ -11,9 +11,12 @@
   },
   "main": "build/index.js",
   "types": "build/index.d.ts",
-  "files": [
-    "/build"
-  ],
+  "exports": {
+    ".": {
+      "types": "./build/index.d.ts",
+      "default": "./build.index.js"
+    }
+  },
   "dependencies": {
     "express": "^5.2.1",
     "express-validator": "^7.3.1",
