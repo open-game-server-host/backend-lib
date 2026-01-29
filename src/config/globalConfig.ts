@@ -16,7 +16,8 @@ interface Global {
             region: string;
             price_multiplier: number;
         }
-    }
+    },
+    app_archive_url: string;
 }
 
 class GlobalConfig extends Config<Global> {

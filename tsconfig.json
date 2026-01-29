@@ -9,7 +9,8 @@
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"outDir": "build"
+		"outDir": "build",
+		"rootDir": "src"
     },
     "include": [
         "src/**/*"
