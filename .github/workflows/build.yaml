@@ -22,10 +22,9 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: Publish
       run: |
-        echo "//npm.pkg.github.com/open-game-server-host/:_authToken=$TOKEN" >> .npmrc
-        echo "@OPENGAMESERVERHOST:registry=https://npm.pkg.github.com/open-game-server-host/" >> .npmrc
-        echo "always-auth=true" >> .npmrc
-        ls -l
+        echo "@opengameserverhost:registry=https://npm.pkg.github.com/open-game-server-host/" >> .npmrc
+        echo "//npm.pkg.github.com/open-game-server-host/:_authToken=\"$TOKEN\"" >> .npmrc
+        echo "//npm.pkg.github.com/open-game-server-host/:always-auth=true" >> .npmrc
       env:
         TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: npm i
