@@ -4,6 +4,8 @@
 		"target": "esnext",
 		"lib": ["ESNext"],
 		"declaration": true,
+		"declarationMap": true,
+		"emitDeclarationOnly": false,
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
