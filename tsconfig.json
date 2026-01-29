@@ -6,9 +6,10 @@
 		"declaration": true,
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"outDir": "build"
     },
     "include": [
-        "build/**/*"
+        "src/**/*"
     ]
 }
