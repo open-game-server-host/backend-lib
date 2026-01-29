@@ -1,0 +1,25 @@
+name: build
+
+on:
+  push:
+    branches:
+    - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Set up Node
+      uses: actions/setup-node@v6
+      with:
+        node-version: 25
+    - run: npm ci
+    - run: tsc
+    - run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

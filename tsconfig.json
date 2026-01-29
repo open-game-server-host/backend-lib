@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+		"module": "commonjs",
+		"target": "esnext",
+		"lib": ["ESNext"],
+		"declaration": true,
+		"outDir": "./build",
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
