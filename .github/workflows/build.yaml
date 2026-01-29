@@ -20,6 +20,13 @@ jobs:
         node-version: 25
         registry-url: https://npm.pkg.github.com/open-game-server-host/
         token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Publish
+      run: |
+        echo "//npm.pkg.github.com/open-game-server-host/:_authToken=$TOKEN" >> .npmrc
+        echo "@OPENGAMESERVERHOST:registry=https://npm.pkg.github.com/open-game-server-host/" >> .npmrc
+        echo "always-auth=true" >> .npmrc
+      env:
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: npm i
     - run: tsc
     - run: npm publish
