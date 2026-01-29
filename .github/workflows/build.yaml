@@ -19,8 +19,6 @@ jobs:
       with:
         node-version: 25
         registry-url: https://npm.pkg.github.com/
-    - name: npm login
-      run: npm login --auth-type legacy
     - name: Publish
       run: |
         echo "@open-game-server-host:registry=https://npm.pkg.github.com/" >> .npmrc
