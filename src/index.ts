@@ -5,6 +5,8 @@ export * from "./config/appsConfig";
 export * from "./config/config";
 export * from "./config/globalConfig";
 
+export * from "./container/runtime";
+
 export * from "./http/httpStatus";
 export * from "./http/httpUtils";
 
