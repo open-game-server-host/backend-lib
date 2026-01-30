@@ -20,17 +20,16 @@ export interface Variant {
     ports: {
         [portNumber: string]: string; // port number : port name
     },
-    runtime: string;
-    default_runtime_image: string;
+    default_docker_image: string;
     minimum_segments: number;
     recommended_segments: number;
     anchor_versions: {
         [name: string]: {
             name: string;
-            default_runtime_image: string;
+            default_docker_image: string;
             minimum_segments: number;
             recommended_segments: number;
-            supported_runtime_images: string[];
+            supported_docker_images: string[];
         }[];
     }
     versions: {
@@ -46,8 +45,8 @@ export interface Version {
         [localFilePath: string]: string;
     },
     current_build_info: string;
-    default_runtime_image?: string;
-    supported_runtime_images: string[];
+    default_docker_image?: string;
+    supported_docker_images: string[];
     minimum_segments: number;
     recommended_segments: number;
     environment_variables?: {[key: string]: any};
