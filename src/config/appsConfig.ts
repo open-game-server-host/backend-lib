@@ -1,7 +1,7 @@
 import { getAppsBranch } from "../env";
 import { Config } from "./config";
 
-type Apps = {[appId: string]: App};
+export type Apps = {[appId: string]: App};
 
 export interface App {
     name: string;
