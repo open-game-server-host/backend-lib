@@ -18,6 +18,7 @@ interface Global {
         }
     },
     app_archive_url: string;
+    docker_registry_url: string;
 }
 
 class GlobalConfig extends Config<Global> {
