@@ -10,3 +10,5 @@ export function expressErrorHandler(error: Error, req: Request, res: Response, n
     res.status(getErrorHttpStatus(responseBody.error));
     res.send(responseBody);
 }
+
+export type BodyRequest<Body = any> = Request<any, any, Body>;
