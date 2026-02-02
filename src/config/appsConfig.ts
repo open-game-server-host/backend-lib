@@ -24,18 +24,20 @@ export interface Variant {
     minimum_segments: number;
     recommended_segments: number;
     anchor_versions: {
-        [name: string]: {
-            name: string;
-            default_docker_image: string;
-            minimum_segments: number;
-            recommended_segments: number;
-            supported_docker_images: string[];
-        }[];
+        [name: string]: AnchorVersion[];
     }
     versions: {
         [versionId: string]: Version;
     }
     environment_variables?: {[key: string]: any};
+}
+
+export interface AnchorVersion {
+    name: string;
+    default_docker_image: string;
+    minimum_segments: number;
+    recommended_segments: number;
+    supported_docker_images: string[];
 }
 
 export interface Version {
