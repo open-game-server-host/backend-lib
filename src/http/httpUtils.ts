@@ -90,8 +90,7 @@ export async function downloadToFile(url: string, filePath: string, init?: Reque
         while (true) {
             const { done, value } = await reader.read();
             if (done) {
-                res();
-                return;
+                break;
             }
             writeStream.write(value);
             if (progressCallback) {
@@ -99,5 +98,6 @@ export async function downloadToFile(url: string, filePath: string, init?: Reque
                 progressCallback(progress);
             }
         }
+        writeStream.on("close", res);
     });
 }
