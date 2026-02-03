@@ -86,15 +86,17 @@ export async function downloadToFile(url: string, filePath: string, init?: Reque
         bytesTotal: response.contentLength
     }
     const writeStream = createWriteStream(filePath);
-    while (true) {
-        const { done, value } = await reader.read();
-        if (done) {
-            break;
+    await new Promise<void>(async res => {
+        while (true) {
+            const { done, value } = await reader.read();
+            if (done) {
+                return;
+            }
+            writeStream.write(value);
+            if (progressCallback) {
+                progress.bytesProcessed = Math.min(progress.bytesTotal, progress.bytesProcessed + value.byteLength);
+                progressCallback(progress);
+            }
         }
-        writeStream.write(value);
-        if (progressCallback) {
-            progress.bytesProcessed = Math.min(progress.bytesTotal, progress.bytesProcessed + value.byteLength);
-            progressCallback(progress);
-        }
-    }
+    });
 }
