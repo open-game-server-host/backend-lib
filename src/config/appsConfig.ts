@@ -21,6 +21,7 @@ export interface Variant {
         [portNumber: string]: string; // port number : port name
     },
     default_docker_image: string;
+    supported_docker_images: string[];
     minimum_segments: number;
     recommended_segments: number;
     anchor_versions: {
