@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { createWriteStream } from "node:fs";
+import { createWriteStream } from "fs";
 import { formatErrorResponseBody, getErrorHttpStatus, OGSHError } from "../error";
 
 export function expressErrorHandler(error: Error, req: Request, res: Response, next: NextFunction) {
@@ -90,6 +90,8 @@ export async function downloadToFile(url: string, filePath: string, init?: Reque
         while (true) {
             const { done, value } = await reader.read();
             if (done) {
+                writeStream.close();
+                res();
                 break;
             }
             writeStream.write(value);
@@ -98,6 +100,5 @@ export async function downloadToFile(url: string, filePath: string, init?: Reque
                 progressCallback(progress);
             }
         }
-        writeStream.on("close", res);
     });
 }
