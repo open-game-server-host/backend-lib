@@ -37,7 +37,7 @@ export interface Version {
         [localFilePath: string]: string;
     },
     current_build_info: string;
-    default_docker_image?: string;
+    default_docker_image: string;
     supported_docker_images: string[];
     minimum_segments: number;
     recommended_segments: number;
