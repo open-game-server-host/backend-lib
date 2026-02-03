@@ -27,5 +27,6 @@ jobs:
       env:
         TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - run: npm i
+    - run: npm i -g typescript
     - run: tsc
     - run: npm publish
