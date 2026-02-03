@@ -87,11 +87,11 @@ export async function downloadToFile(url: string, filePath: string, init?: Reque
     }
     const writeStream = createWriteStream(filePath);
     await new Promise<void>(async res => {
+        writeStream.on("close", res);
         while (true) {
             const { done, value } = await reader.read();
             if (done) {
                 writeStream.close();
-                res();
                 break;
             }
             writeStream.write(value);
