@@ -24,9 +24,7 @@ export interface Variant {
     supported_docker_images: string[];
     minimum_segments: number;
     recommended_segments: number;
-    anchor_versions: {
-        [name: string]: AnchorVersion[];
-    }
+    anchor_versions: AnchorVersion[];
     versions: {
         [versionId: string]: Version;
     }
