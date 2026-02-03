@@ -90,6 +90,7 @@ export async function downloadToFile(url: string, filePath: string, init?: Reque
         while (true) {
             const { done, value } = await reader.read();
             if (done) {
+                res();
                 return;
             }
             writeStream.write(value);
