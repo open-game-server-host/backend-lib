@@ -14,14 +14,16 @@ export function expressErrorHandler(error: Error, req: Request, res: Response, n
 
 export type BodyRequest<Body = any> = Request<any, any, Body>;
 
-interface DownloadProgress {
+export interface DownloadProgress {
     bytesTotal: number;
     bytesProcessed: number;
 }
+
 interface Download {
     contentLength: number;
     stream: ReadableStream;
 }
+
 export async function download(url: string, init?: RequestInit): Promise<Download> {
     const response = await fetch(url, init);
     if (!response.body) {
