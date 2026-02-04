@@ -28,6 +28,7 @@ export interface Variant {
         [versionId: string]: Version;
     }
     environment_variables?: {[key: string]: any};
+    order: number;
 }
 
 export interface Version {
@@ -42,6 +43,7 @@ export interface Version {
     minimum_segments: number;
     recommended_segments: number;
     environment_variables?: {[key: string]: any};
+    order: number;
 }
 
 class AppsConfig extends Config<Apps> {
