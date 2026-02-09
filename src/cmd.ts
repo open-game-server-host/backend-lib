@@ -16,7 +16,13 @@ export async function asyncCmd(command: string, silent: boolean = false) {
         child.stderr?.pipe(process.stderr);
     }
     await new Promise<void>((res, rej) => {
-        child.on("exit", res);
-        child.on("error", rej);
+        child.on("exit", () => {
+            child.removeAllListeners();
+            res();
+        });
+        child.on("error", () => {
+            child.removeAllListeners();
+            rej();
+        });
     });
 }
