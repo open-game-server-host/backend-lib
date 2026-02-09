@@ -10,6 +10,7 @@ export * from "./container/runtime";
 export * from "./http/httpStatus";
 export * from "./http/httpUtils";
 
+export * from "./cmd";
 export * from "./env";
 export * from "./error";
 export * from "./logger";
