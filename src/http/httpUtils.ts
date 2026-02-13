@@ -104,3 +104,13 @@ export async function downloadToFile(url: string, filePath: string, init?: Reque
         }
     });
 }
+
+export function respond(res: Response, data?: unknown) {
+    if (!data) {
+        res.send();
+        return;
+    }
+    res.send(JSON.stringify({
+        data
+    }));
+}
