@@ -1,3 +1,4 @@
+import { ContainerPort } from "./containerPort";
 import { Daemon } from "./daemon";
 
 export interface Container {
@@ -36,11 +37,6 @@ export interface ContainerData {
     user_id: string;
     variant_id: string;
     version_id: string;
-}
-
-export interface ContainerPort {
-    container_port: number;
-    host_port: number;
 }
 
 export type ContainerActionType =
