@@ -9,9 +9,7 @@ export interface Container {
     id: string;
     locked: boolean;
     name: string;
-    ports: {
-        
-    }
+    ports: ContainerPort[];
     runtime: string;
     segments: number;
     terminate_at?: number;
@@ -41,8 +39,8 @@ export interface ContainerData {
 }
 
 export interface ContainerPort {
-    containerPort: number;
-    hostPort: number;
+    container_port: number;
+    host_port: number;
 }
 
 export type ContainerActionType =
@@ -58,8 +56,8 @@ export type ContainerActionType =
 
 export interface ContainerAction {
     id: string;
-    containerId: string;
-    userId: string;
+    container_id: string;
+    user_id: string;
     action: ContainerActionType;
     data: string;
 }
