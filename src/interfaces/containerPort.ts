@@ -3,6 +3,7 @@ export interface ContainerPort {
     host_port: number;
 }
 
-export interface AssignedContainerPort extends ContainerPort {
+export interface AssignedContainerPort {
     container_id: string;
+    ports: ContainerPort[];
 }
