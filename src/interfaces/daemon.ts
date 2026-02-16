@@ -1,5 +1,4 @@
 import { Ip } from "./ip";
-import { PortRange } from "./portRange";
 import { Region } from "./region";
 
 export interface Daemon {
@@ -9,7 +8,8 @@ export interface Daemon {
     id: string;
     ip: Ip;
     os: string;
-    port_range: PortRange;
+    port_range_start: number;
+    port_range_end: number;
     region: Region;
     segments: number;
     segments_available: number;
@@ -28,7 +28,8 @@ export interface DaemonData {
     created_at: number;
     ip_id: string;
     os: string;
-    port_range_id: string;
+    port_range_start: number;
+    port_range_end: number;
     region_id: string;
     segments: number;
     segments_available: number;

@@ -13,7 +13,6 @@ export * from "./http/httpUtils";
 export * from "./interfaces/container";
 export * from "./interfaces/daemon";
 export * from "./interfaces/ip";
-export * from "./interfaces/portRange";
 export * from "./interfaces/region";
 export * from "./interfaces/user";
 
