@@ -44,6 +44,7 @@ export interface CreateContainerData {
     free: boolean;
     name: string;
     runtime: string;
+    region_id: string;
     segments: number;
     user_id: string;
     variant_id: string;
