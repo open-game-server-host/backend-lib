@@ -39,6 +39,17 @@ export interface ContainerData {
     version_id: string;
 }
 
+export interface CreateContainerData {
+    app_id: string;
+    free: boolean;
+    name: string;
+    runtime: string;
+    segments: number;
+    user_id: string;
+    variant_id: string;
+    version_id: string;
+}
+
 export type ContainerActionType =
     | "create"
     | "start"
