@@ -2,7 +2,7 @@ import { getGlobalConfigBranch } from "../env";
 import { Config } from "./config";
 
 interface Api {
-    domain: string;
+    url: string;
 }
 
 class ApiConfig extends Config<Api> {
