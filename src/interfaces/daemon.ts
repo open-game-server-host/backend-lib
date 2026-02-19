@@ -2,6 +2,7 @@ import { Ip } from "./ip";
 import { Region } from "./region";
 
 export interface Daemon {
+    api_key: string;
     cpu_arch: string;
     cpu_name: string;
     created_at: number;
@@ -23,6 +24,7 @@ export interface RawDaemon extends DaemonData {
 }
 
 export interface DaemonData {
+    api_key: string;
     cpu_arch: string;
     cpu_name: string;
     created_at: number;
