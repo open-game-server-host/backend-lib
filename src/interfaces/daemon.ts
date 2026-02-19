@@ -2,7 +2,7 @@ import { Ip } from "./ip";
 import { Region } from "./region";
 
 export interface Daemon {
-    api_key: string;
+    api_key_hash: string;
     cpu_arch: string;
     cpu_name: string;
     created_at: number;
@@ -14,6 +14,7 @@ export interface Daemon {
     region: Region;
     segments: number;
     segments_available: number;
+    setup_complete: boolean;
     sftp_port: number;
     url: string;
     ws_url: string;
@@ -24,7 +25,7 @@ export interface RawDaemon extends DaemonData {
 }
 
 export interface DaemonData {
-    api_key: string;
+    api_key_hash: string;
     cpu_arch: string;
     cpu_name: string;
     created_at: number;
@@ -35,6 +36,7 @@ export interface DaemonData {
     region_id: string;
     segments: number;
     segments_available: number;
+    setup_complete: boolean; // The api key needs to be generated and given to the daemon during its setup, which means a record is created before it's ready.
     sftp_port: number;
     url: string;
     ws_url: string;
