@@ -19,6 +19,6 @@ class ApiConfig extends Config<Api> {
 
 const apiConfig = new ApiConfig();
 
-export async function getGlobalConfig(): Promise<Api> {
+export async function getApiConfig(): Promise<Api> {
     return apiConfig.getConfig();
 }
