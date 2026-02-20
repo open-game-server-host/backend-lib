@@ -3,8 +3,3 @@ export interface Ip {
     ipv4?: string;
     ipv6?: string;
 }
-
-export interface IpData {
-    ipv4?: string;
-    ipv6?: string;
-}
