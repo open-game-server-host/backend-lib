@@ -5,9 +5,11 @@ export interface Daemon extends SanitisedDaemon {
     api_key_hash: string;
 }
 
-export interface SanitisedDaemon extends SetupIncompleteDaemon {
+export interface SanitisedDaemon {
+    created_at: number;
     cpu_arch: string;
     cpu_name: string;
+    id: string;
     ip: Ip;
     os: string;
     port_range_start: number;
@@ -15,15 +17,10 @@ export interface SanitisedDaemon extends SetupIncompleteDaemon {
     region: Region;
     segments: number;
     segments_available: number;
+    setup_complete: boolean;
     sftp_port: number;
     url: string;
     ws_url: string;
-}
-
-export interface SetupIncompleteDaemon {
-    created_at: number;
-    id: string;
-    setup_complete: boolean;
 }
 
 export function sanitiseDaemon(daemon: Daemon): SanitisedDaemon {
