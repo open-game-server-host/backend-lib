@@ -1,11 +1,15 @@
+import { NextFunction, Request, Response } from "express";
 import { OGSHError } from "../error";
 
-export async function getUserIdFromAuthToken(token: string): Promise<string> {
-    if (!token) {
-        throw new OGSHError("auth/invalid", `token undefined`);
+export interface UserLocals {
+    userId: string;
+}
+
+export async function userAuthMiddleware(req: Request, res: Response<any, UserLocals>, next: NextFunction) {
+    if (!req.headers.authorization) {
+        throw new OGSHError("auth/invalid", `user auth middleware - 'authorization' header missing`);
     }
-
-    // TODO authenticate with firebase
-
-    return token; // TODO for now the token is the userId for testing
+    const token = req.headers.authorization.substring(7);
+    res.locals.userId = token; // TODO authorise user properly, but for now the token is the userId for testing
+    next();
 }
