@@ -1,7 +1,7 @@
 export interface User {
     id: string;
     uid: string;
-    created_at: Date;
+    created_at: number;
 }
 
 export interface UserData {
