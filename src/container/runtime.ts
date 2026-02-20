@@ -1,6 +1,6 @@
 import { Version } from "../config/appsConfig";
 
-const runtimes = {
+const runtimes: {[javaVersion: string]: string} = {
     java8: "jvm",
     java11: "jvm",
     java17: "jvm",
@@ -9,5 +9,5 @@ const runtimes = {
 } as const;
 
 export function getVersionRuntime(version: Version): string {
-    return runtimes[version.default_docker_image] || "default";
+    return runtimes[version.default_runtime] || "default";
 }
