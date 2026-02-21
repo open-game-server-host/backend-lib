@@ -17,6 +17,8 @@ export * from "./interfaces/ip";
 export * from "./interfaces/region";
 export * from "./interfaces/user";
 
+export * from "./ws/wsRouter";
+
 export * from "./cmd";
 export * from "./env";
 export * from "./error";
