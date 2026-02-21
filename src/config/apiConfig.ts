@@ -3,6 +3,7 @@ import { Config } from "./config";
 
 interface Api {
     url: string;
+    websocketUrl: string;
 }
 
 class ApiConfig extends Config<Api> {
