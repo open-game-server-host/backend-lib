@@ -1,5 +1,6 @@
 import { WebSocket } from "ws";
 import { OGSHError } from "../error";
+import { Logger } from "../logger";
 
 export type WsMsgHandler = (ws: WebSocket, body: any, locals: any) => void | Promise<void>;
 
@@ -20,11 +21,18 @@ export class WsRouter {
         this.routes.set(action, handlers);
     }
 
-    async call(action: string, ws: WebSocket, body: any, locals: any) {
+    async call(action: string, ws: WebSocket, body: any, locals: any, logger: Logger) {
         const handlers = this.routes.get(action);
         if (handlers) {
-            for (const handler of handlers) {
-                await handler(ws, body, locals);
+            try {
+                for (const handler of handlers) {
+                    await handler(ws, body, locals);
+                }
+            } catch (error) {
+                logger.error(error as Error, {
+                    route: this.route,
+                    action
+                });
             }
         } else {
             throw new OGSHError("general/unspecified", `tried to call an invalid action '${action}'`);
