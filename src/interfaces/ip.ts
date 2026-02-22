@@ -1,5 +1,9 @@
-export interface Ip {
+export interface Ipv4 {
     id: string;
-    ipv4?: string;
-    ipv6?: string;
+    ipv4: string;
+}
+
+export interface Ipv6 {
+    id: string;
+    ipv6: string;
 }
