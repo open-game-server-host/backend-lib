@@ -19,8 +19,6 @@ export interface SanitisedDaemon {
     segments_available: number;
     setup_complete: boolean;
     sftp_port: number;
-    url: string;
-    ws_url: string;
 }
 
 export function sanitiseDaemon(daemon: Daemon): SanitisedDaemon {
@@ -37,8 +35,6 @@ export function sanitiseDaemon(daemon: Daemon): SanitisedDaemon {
         segments: daemon.segments,
         segments_available: daemon.segments_available,
         setup_complete: daemon.setup_complete,
-        sftp_port: daemon.sftp_port,
-        url: daemon.url,
-        ws_url: daemon.ws_url
+        sftp_port: daemon.sftp_port
     };
 }
