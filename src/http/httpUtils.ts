@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { createWriteStream } from "fs";
+import query from "querystring";
 import { formatErrorResponseBody, getErrorHttpStatus, OGSHError } from "../error";
 
 export function expressErrorHandler(error: Error, req: Request, res: Response, next: NextFunction) {
@@ -113,4 +114,16 @@ export function respond(res: Response, data?: unknown) {
     res.send(JSON.stringify({
         data
     }));
+}
+
+export function getUrlQueryParams<T>(url: string): T {
+        let queryStartIndex = 0;
+        for (let i = 0; i < url.length; i++) {
+            const char = url.charAt(i);
+            if (char === "?") {
+                queryStartIndex = i + 1;
+                break;
+            }
+        }
+        return query.parse(url.substring(queryStartIndex)) as T;
 }
