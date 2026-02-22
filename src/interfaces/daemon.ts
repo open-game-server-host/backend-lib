@@ -1,4 +1,4 @@
-import { Ipv4, Ipv6 } from "./ip";
+import { Ip } from "./ip";
 import { Region } from "./region";
 
 export interface Daemon extends SanitisedDaemon {
@@ -10,8 +10,8 @@ export interface SanitisedDaemon {
     cpu_arch: string;
     cpu_name: string;
     id: string;
-    ipv4?: Ipv4;
-    ipv6?: Ipv6
+    ipv4?: Ip;
+    ipv6?: Ip;
     os: string;
     port_range_start: number;
     port_range_end: number;
