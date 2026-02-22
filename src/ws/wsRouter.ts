@@ -1,3 +1,4 @@
+import { WebSocket } from "ws";
 import { OGSHError } from "../error";
 
 export type WsMsgHandler = (ws: WebSocket, body: any, locals: any) => void | Promise<void>;
