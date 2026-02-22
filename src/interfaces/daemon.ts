@@ -13,8 +13,10 @@ export interface SanitisedDaemon {
     ipv4?: Ip;
     ipv6?: Ip;
     os: string;
-    port_range_start: number;
-    port_range_end: number;
+    ipv4_port_range_start?: number;
+    ipv4_port_range_end?: number;
+    ipv6_port_range_start?: number;
+    ipv6_port_range_end?: number;
     region: Region;
     segments: number;
     segments_available: number;
@@ -31,8 +33,10 @@ export function sanitiseDaemon(daemon: Daemon): SanitisedDaemon {
         ipv4: daemon.ipv4,
         ipv6: daemon.ipv6,
         os: daemon.os,
-        port_range_end: daemon.port_range_end,
-        port_range_start: daemon.port_range_start,
+        ipv4_port_range_start: daemon.ipv4_port_range_start,
+        ipv4_port_range_end: daemon.ipv4_port_range_end,
+        ipv6_port_range_start: daemon.ipv6_port_range_start,
+        ipv6_port_range_end: daemon.ipv6_port_range_end,
         region: daemon.region,
         segments: daemon.segments,
         segments_available: daemon.segments_available,
