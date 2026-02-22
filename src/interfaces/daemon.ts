@@ -21,7 +21,6 @@ export interface SanitisedDaemon {
     segments: number;
     segmentsAvailable: number;
     setupComplete: boolean;
-    sftpPort: number;
 }
 
 export function sanitiseDaemon(daemon: Daemon): SanitisedDaemon {
@@ -40,7 +39,6 @@ export function sanitiseDaemon(daemon: Daemon): SanitisedDaemon {
         region: daemon.region,
         segments: daemon.segments,
         segmentsAvailable: daemon.segmentsAvailable,
-        setupComplete: daemon.setupComplete,
-        sftpPort: daemon.sftpPort
+        setupComplete: daemon.setupComplete
     };
 }
