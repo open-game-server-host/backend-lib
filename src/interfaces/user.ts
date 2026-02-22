@@ -1,6 +1,6 @@
 export interface User {
     id: string;
-    auth_uid: string;
-    created_at: number;
+    authUid: string;
+    createdAt: number;
     permissions: string[];
 }

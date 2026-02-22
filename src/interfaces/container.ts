@@ -2,20 +2,20 @@ import { ContainerPort } from "./containerPort";
 import { Daemon } from "./daemon";
 
 export interface Container {
-    app_id: string;
-    contract_length_days: number;
-    created_at: number;
+    appId: string;
+    contractLengthDays: number;
+    createdAt: number;
     daemon: Daemon;
     free: boolean;
     id: string;
     locked: boolean;
     name: string;
-    ipv4_ports: ContainerPort[];
-    ipv6_ports: ContainerPort[];
+    ipv4Ports: ContainerPort[];
+    ipv6Ports: ContainerPort[];
     runtime: string;
     segments: number;
-    terminate_at?: number;
-    user_id: string;
-    variant_id: string;
-    version_id: string;
+    terminateAt?: number;
+    userId: string;
+    variantId: string;
+    versionId: string;
 }

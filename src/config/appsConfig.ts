@@ -6,43 +6,43 @@ export type Apps = {[appId: string]: App};
 export interface App {
     name: string;
     description: string;
-    coming_soon: boolean;
-    default_variant: string;
+    comingSoon: boolean;
+    defaultVariant: string;
     variants: {
         [variantId: string]: Variant;
     }
-    environment_variables?: {[key: string]: any};
+    environmentVariables?: {[key: string]: any};
 }
 
 export interface Variant {
     name: string;
-    stop_command?: string;
+    stopCommand?: string;
     ports: {
         [portNumber: string]: string; // port number : port name
     },
-    default_runtime: string;
-    supported_runtimes: string[];
-    minimum_segments: number;
-    recommended_segments: number;
+    defaultRuntime: string;
+    supportedRuntimes: string[];
+    minimumSegments: number;
+    recommendedSegments: number;
     versions: {
         [versionId: string]: Version;
     }
-    environment_variables?: {[key: string]: any};
+    environmentVariables?: {[key: string]: any};
     order: number;
 }
 
 export interface Version {
     name: string;
-    current_build: number;
-    current_build_file_hashes: {
+    currentBuild: number;
+    currentBuildFileHashes: {
         [localFilePath: string]: string;
     },
-    current_build_info: string;
-    default_runtime: string;
-    supported_runtimes: string[];
-    minimum_segments: number;
-    recommended_segments: number;
-    environment_variables?: {[key: string]: any};
+    currentBuildInfo: string;
+    defaultRuntime: string;
+    supportedRuntimes: string[];
+    minimumSegments: number;
+    recommendedSegments: number;
+    environmentVariables?: {[key: string]: any};
     order: number;
 }
 

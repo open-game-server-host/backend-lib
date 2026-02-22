@@ -9,5 +9,5 @@ const runtimes: {[javaVersion: string]: string} = {
 } as const;
 
 export function getVersionRuntime(version: Version): string {
-    return runtimes[version.default_runtime] || "default";
+    return runtimes[version.defaultRuntime] || "default";
 }

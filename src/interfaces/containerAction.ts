@@ -11,8 +11,8 @@ export type ContainerActionType =
 
 export interface ContainerAction {
     id: string;
-    container_id: string;
-    user_id: string;
+    containerId: string;
+    userId: string;
     action: ContainerActionType;
     data: string;
 }

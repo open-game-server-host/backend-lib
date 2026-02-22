@@ -3,9 +3,9 @@ import { Config } from "./config";
 
 interface Global {
     segment: {
-        max_cpus: number;
-        memory_mb: number;
-        storage_gb: number;
+        maxCpus: number;
+        memoryMb: number;
+        storageGb: number;
         price: {
             [currency: string]: number;
         }
@@ -14,11 +14,11 @@ interface Global {
         [twoDigitIsoCode: string]: {
             name: string;
             region: string;
-            price_multiplier: number;
+            priceMultiplier: number;
         }
     },
-    app_archive_url: string;
-    docker_registry_url: string;
+    appArchiveUrl: string;
+    dockerRegistryUrl: string;
 }
 
 class GlobalConfig extends Config<Global> {

@@ -1,9 +1,9 @@
 export interface ContainerPort {
-    container_port: number;
-    host_port: number;
+    containerPort: number;
+    hostPort: number;
 }
 
 export interface AssignedContainerPorts {
-    container_id: string;
+    containerId: string;
     ports: ContainerPort[];
 }
