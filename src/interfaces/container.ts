@@ -19,3 +19,9 @@ export interface Container {
     variantId: string;
     versionId: string;
 }
+
+export interface ContainerInstallData {
+    appId: string;
+    variantId: string;
+    versionId: string;
+}
