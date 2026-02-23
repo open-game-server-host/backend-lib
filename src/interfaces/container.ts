@@ -20,12 +20,12 @@ export interface Container {
     versionId: string;
 }
 
-export interface ContainerRegisterData extends ContainerInstallData, ContainerPortsData {
+export interface ContainerRegisterData extends ContainerAppData, ContainerPortsData {
     containerId: string;
     segments: number;
 }
 
-export interface ContainerInstallData {
+export interface ContainerAppData {
     appId: string;
     variantId: string;
     versionId: string;
