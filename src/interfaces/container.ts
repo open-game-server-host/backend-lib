@@ -20,6 +20,10 @@ export interface Container {
     versionId: string;
 }
 
+export interface ContainerRegisterData extends ContainerInstallData {
+    segments: number;
+}
+
 export interface ContainerInstallData {
     appId: string;
     variantId: string;
