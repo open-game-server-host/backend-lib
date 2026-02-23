@@ -20,7 +20,8 @@ export interface Container {
     versionId: string;
 }
 
-export interface ContainerRegisterData extends ContainerInstallData {
+export interface ContainerRegisterData extends ContainerInstallData, ContainerPortsData {
+    containerId: string;
     segments: number;
 }
 
@@ -28,4 +29,9 @@ export interface ContainerInstallData {
     appId: string;
     variantId: string;
     versionId: string;
+}
+
+export interface ContainerPortsData {
+    ipv4Ports: ContainerPort[];
+    ipv6Ports: ContainerPort[];
 }
