@@ -1,8 +1,23 @@
 import { Ip } from "./ip";
 import { Region } from "./region";
 
-export interface Daemon extends SanitisedDaemon {
+export interface Daemon {
     apiKeyHash: string;
+    createdAt: number;
+    cpuArch: string;
+    cpuName: string;
+    id: string;
+    ipv4?: Ip;
+    ipv6?: Ip;
+    os: string;
+    ipv4PortRangeStart?: number;
+    ipv4PortRangeEnd?: number;
+    ipv6PortRangeStart?: number;
+    ipv6PortRangeEnd?: number;
+    region: Region;
+    segments: number;
+    segmentsAvailable: number;
+    setupComplete: boolean;
 }
 
 export interface SanitisedDaemon {
