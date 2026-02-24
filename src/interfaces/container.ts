@@ -28,6 +28,10 @@ export type ContainerPermission =
     | "install"
     | "terminate"
     | "setRuntime"
+    | "setName"
+    | "resize"
+    | "changeRegion"
+    | "makeBackup"
 ;
 export interface ContainerWithPermissions extends Container {
     userPermissions?: ContainerPermission[]; // If this is undefined, the user does not have any permission to access this container
