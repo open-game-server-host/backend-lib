@@ -6,6 +6,11 @@ export interface User {
 }
 
 export type UserPermission =
-    | "createDaemon"
     | "createContainer"
+
+    | "createDaemon"
+    | "listDaemons"
+    | "removeDaemon"
+
+    // TODO admin permissions
 ;
