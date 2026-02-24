@@ -30,7 +30,7 @@ export type ContainerPermission =
     | "setRuntime"
 ;
 export interface ContainerWithPermissions extends Container {
-    user_permissions: ContainerPermission[];
+    userPermissions: ContainerPermission[];
 }
 
 export interface ContainerRegisterData extends ContainerAppData, ContainerPortsData {
