@@ -30,7 +30,7 @@ export type ContainerPermission =
     | "setRuntime"
 ;
 export interface ContainerWithPermissions extends Container {
-    userPermissions: ContainerPermission[];
+    userPermissions?: ContainerPermission[]; // If this is undefined, the user does not have any permission to access this container
 }
 
 export interface ContainerRegisterData extends ContainerAppData, ContainerPortsData {
