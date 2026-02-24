@@ -20,6 +20,19 @@ export interface Container {
     versionId: string;
 }
 
+export type ContainerPermission =
+    | "start"
+    | "stop"
+    | "kill"
+    | "command"
+    | "install"
+    | "terminate"
+    | "setRuntime"
+;
+export interface ContainerWithPermissions extends Container {
+    user_permissions: ContainerPermission[];
+}
+
 export interface ContainerRegisterData extends ContainerAppData, ContainerPortsData {
     containerId: string;
     segments: number;
