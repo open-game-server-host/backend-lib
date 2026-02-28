@@ -10,8 +10,7 @@ export interface Container {
     id: string;
     locked: boolean;
     name: string;
-    ipv4Ports: ContainerPort[];
-    ipv6Ports: ContainerPort[];
+    ports: ContainerPort[];
     runtime: string;
     segments: number;
     terminateAt?: number;
