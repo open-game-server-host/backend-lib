@@ -22,20 +22,22 @@ export interface Daemon {
 
 export interface SanitisedDaemon {
     createdAt: number;
-    cpuArch: string;
+    cpuArch?: string;
     id: string;
     ipv4?: Ip;
     ipv6?: Ip;
-    region: Region;
+    region?: Region;
+    setupComplete: boolean;
 }
 
-export function sanitiseDaemon(daemon: Daemon): SanitisedDaemon {
+export function sanitiseDaemon(daemon: Partial<Daemon>): SanitisedDaemon {
     return {
         cpuArch: daemon.cpuArch,
         createdAt: daemon.createdAt,
         id: daemon.id,
         ipv4: daemon.ipv4,
         ipv6: daemon.ipv6,
-        region: daemon.region
+        region: daemon.region,
+        setupComplete: daemon.setupComplete
     };
 }
