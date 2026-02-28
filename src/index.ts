@@ -9,6 +9,7 @@ export * from "./http/httpStatus";
 export * from "./http/httpUtils";
 
 export * from "./interfaces/container";
+export * from "./interfaces/containerAction";
 export * from "./interfaces/containerPort";
 export * from "./interfaces/daemon";
 export * from "./interfaces/ip";
@@ -20,5 +21,6 @@ export * from "./ws/wsRouter";
 export * from "./cmd";
 export * from "./env";
 export * from "./error";
+export * from "./git";
 export * from "./logger";
 export * from "./utils";
