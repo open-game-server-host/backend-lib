@@ -53,12 +53,16 @@ const env = parseEnvironmentVariables([
     }
 ]);
 
+export function getAppsBranch(): string {
+    return env.get("APPS_BRANCH")!;
+}
+
 class AppsConfig extends Config<Apps> {
     constructor() {
         super({
             name: "Apps",
             repo: "apps",
-            branch: env.get("APPS_BRANCH")!,
+            branch: getAppsBranch(),
             filePath: "output/apps.json"
         });
     }

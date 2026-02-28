@@ -28,12 +28,16 @@ const env = parseEnvironmentVariables([
     }
 ]);
 
+export function getGlobalConfigBranch(): string {
+    return env.get("GLOBAL_CONFIG_BRANCH")!;
+}
+
 class GlobalConfig extends Config<Global> {
     constructor() {
         super({
             name: "Global",
             repo: "configs",
-            branch: env.get("GLOBAL_CONFIG_BRANCH")!,
+            branch: getGlobalConfigBranch(),
             filePath: "global.json"
         });
     }

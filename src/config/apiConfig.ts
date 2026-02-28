@@ -13,12 +13,16 @@ const env = parseEnvironmentVariables([
     }
 ]);
 
+export function getApiConfigBranch(): string {
+    return env.get("API_CONFIG_BRANCH")!;
+}
+
 class ApiConfig extends Config<Api> {
     constructor() {
         super({
             name: "Api",
             repo: "configs",
-            branch: env.get("API_CONFIG_BRANCH")!,
+            branch: getApiConfigBranch(),
             filePath: "api.json"
         });
     }
