@@ -48,6 +48,5 @@ export interface ContainerAppData {
 }
 
 export interface ContainerPortsData {
-    ipv4Ports: ContainerPort[];
-    ipv6Ports: ContainerPort[];
+    ports: ContainerPort[];
 }
