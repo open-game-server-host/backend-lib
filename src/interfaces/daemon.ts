@@ -40,3 +40,10 @@ export function sanitiseDaemon(daemon: Partial<Daemon>): SanitisedDaemon {
         setupComplete: daemon.setupComplete
     };
 }
+
+export interface UpdateDaemonData {
+    cpuArch?: string;
+    cpuName?: string;
+    os?: string;
+    segmentsMax?: number;
+}
