@@ -8,15 +8,16 @@ export interface Daemon {
     cpuName: string;
     id: string;
     ipv4?: Ip;
-    ipv6?: Ip;
-    os: string;
     ipv4PortRangeStart?: number;
     ipv4PortRangeEnd?: number;
+    ipv6?: Ip;
     ipv6PortRangeStart?: number;
     ipv6PortRangeEnd?: number;
+    os: string;
     region: Region;
     segments: number;
     segmentsAvailable: number;
+    segmentsMax: number;
     setupComplete: boolean;
 }
 
