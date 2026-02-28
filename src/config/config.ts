@@ -1,4 +1,12 @@
+import { getGithubRawFileUrl } from "../git";
 import { Logger } from "../logger";
+
+interface ConfigInfo {
+    name: string;
+    repo: string;
+    branch: string;
+    filePath: string;
+}
 
 export abstract class Config<T> {
     private readonly logger: Logger;
@@ -7,21 +15,15 @@ export abstract class Config<T> {
     private callbacks: (() => void)[] = [];
     private config: T | undefined;
 
-    constructor(
-        private readonly name: string,
-        private readonly githubOrgUrl: string,
-        private readonly repo: string,
-        private readonly branch: string,
-        private readonly filePath: string
-    ) {
-        this.fullUrl = `${this.githubOrgUrl}/${this.repo}/refs/heads/${this.branch}/${this.filePath}`;
+    constructor(info: ConfigInfo) {
+        // this.fullUrl = `${this.githubOrgUrl}/${this.repo}/refs/heads/${this.branch}/${this.filePath}`;
+        this.fullUrl = getGithubRawFileUrl(info.repo, info.branch, info.filePath);
 
-        this.logger = new Logger(`CONFIG: ${name}`);
-        this.logger.set("name", name);
-        this.logger.set("githubOrgUrl", githubOrgUrl);
-        this.logger.set("repo", repo);
-        this.logger.set("branch", branch);
-        this.logger.set("filePath", filePath);
+        this.logger = new Logger(`CONFIG: ${info.name}`);
+        this.logger.set("name", info.name);
+        this.logger.set("repo", info.repo);
+        this.logger.set("branch", info.branch);
+        this.logger.set("filePath", info.filePath);
         this.logger.set("fullUrl", this.fullUrl);
 
         this.updateConfig();

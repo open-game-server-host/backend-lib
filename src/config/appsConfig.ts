@@ -1,4 +1,4 @@
-import { getAppsBranch } from "../env";
+import { parseEnvironmentVariables } from "../env";
 import { Config } from "./config";
 
 export type Apps = {[appId: string]: App};
@@ -46,15 +46,21 @@ export interface Version {
     order: number;
 }
 
+const env = parseEnvironmentVariables([
+    {
+        key: "APPS_BRANCH",
+        defaultValue: "main"
+    }
+]);
+
 class AppsConfig extends Config<Apps> {
     constructor() {
-        super(
-            "Apps",
-            "https://raw.githubusercontent.com/open-game-server-host",
-            "apps",
-            getAppsBranch(),
-            "output/apps.json"
-        );
+        super({
+            name: "Apps",
+            repo: "apps",
+            branch: env.get("APPS_BRANCH")!,
+            filePath: "output/apps.json"
+        });
     }
 }
 

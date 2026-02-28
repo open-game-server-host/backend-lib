@@ -24,30 +24,3 @@ export function parseEnvironmentVariables(environmentVariables: EnvironmentVaria
     }
     return parsedValues;
 }
-
-const parsedVariables = parseEnvironmentVariables([
-    {
-        key: "BRANCH",
-        defaultValue: "main"
-    },
-    {
-        key: "GLOBAL_CONFIG_BRANCH",
-        defaultValue: "main"
-    },
-    {
-        key: "APPS_BRANCH",
-        defaultValue: "main"
-    }
-]);
-
-export function getBranch(): string {
-    return parsedVariables.get("BRANCH")!;
-}
-
-export function getGlobalConfigBranch(): string {
-    return parsedVariables.get("GLOBAL_CONFIG_BRANCH")!;
-}
-
-export function getAppsBranch(): string {
-    return parsedVariables.get("APPS_BRANCH")!;
-}

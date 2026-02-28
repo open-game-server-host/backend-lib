@@ -1,4 +1,4 @@
-import { getGlobalConfigBranch } from "../env";
+import { parseEnvironmentVariables } from "../env";
 import { Config } from "./config";
 
 interface Api {
@@ -6,15 +6,21 @@ interface Api {
     websocketUrl: string;
 }
 
+const env = parseEnvironmentVariables([
+    {
+        key: "API_CONFIG_BRANCH",
+        defaultValue: "main"
+    }
+]);
+
 class ApiConfig extends Config<Api> {
     constructor() {
-        super(
-            "Global",
-            "https://raw.githubusercontent.com/open-game-server-host",
-            "configs",
-            getGlobalConfigBranch(),
-            "api.json"
-        );
+        super({
+            name: "Api",
+            repo: "configs",
+            branch: env.get("API_CONFIG_BRANCH")!,
+            filePath: "api.json"
+        });
     }
 }
 

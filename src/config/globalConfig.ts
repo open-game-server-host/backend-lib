@@ -1,4 +1,4 @@
-import { getGlobalConfigBranch } from "../env";
+import { parseEnvironmentVariables } from "../env";
 import { Config } from "./config";
 
 interface Global {
@@ -21,15 +21,21 @@ interface Global {
     dockerRegistryUrl: string;
 }
 
+const env = parseEnvironmentVariables([
+    {
+        key: "GLOBAL_CONFIG_BRANCH",
+        defaultValue: "main"
+    }
+]);
+
 class GlobalConfig extends Config<Global> {
     constructor() {
-        super(
-            "Global",
-            "https://raw.githubusercontent.com/open-game-server-host",
-            "configs",
-            getGlobalConfigBranch(),
-            "global.json"
-        );
+        super({
+            name: "Global",
+            repo: "configs",
+            branch: env.get("GLOBAL_CONFIG_BRANCH")!,
+            filePath: "global.json"
+        });
     }
 }
 
