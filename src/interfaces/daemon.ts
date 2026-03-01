@@ -13,7 +13,7 @@ export interface Daemon {
     portRangeStart?: number;
     portRangeEnd?: number;
     region: Region;
-    segments: number;
+    segmentsUsable: number;
     segmentsAvailable: number;
     segmentsMax: number;
     setupComplete: boolean;
