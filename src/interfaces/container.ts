@@ -31,7 +31,7 @@ export interface ContainerAppData {
 
 export interface ContainerPortsData {
     ports: {
-        [ipId: string]: {
+        [ip: string]: {
             ports: ContainerPort[];
             version: 4 | 6;
         }
