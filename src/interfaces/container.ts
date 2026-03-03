@@ -1,7 +1,7 @@
 import { ContainerPort } from "./containerPort";
 import { SanitisedDaemon } from "./daemon";
 
-export interface Container {
+export interface Container extends ContainerPortsData {
     appId: string;
     contractLengthDays: number;
     createdAt: number;
@@ -10,9 +10,6 @@ export interface Container {
     id: string;
     locked: boolean;
     name: string;
-    ports: {
-        [id: string]: ContainerPort[];
-    }
     runtime: string;
     segments: number;
     terminateAt?: number;
@@ -34,6 +31,9 @@ export interface ContainerAppData {
 
 export interface ContainerPortsData {
     ports: {
-        [ipId: string]: ContainerPort[];
+        [ipId: string]: {
+            ports: ContainerPort[];
+            version: 4 | 6;
+        }
     }
 }
