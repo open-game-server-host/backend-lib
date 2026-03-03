@@ -7,8 +7,7 @@ export interface Daemon {
     cpuArch: string;
     cpuName: string;
     id: string;
-    ipv4?: Ip;
-    ipv6?: Ip;
+    ips: Ip[];
     os: string;
     portRangeStart?: number;
     portRangeEnd?: number;
@@ -17,14 +16,14 @@ export interface Daemon {
     segmentsAvailable: number;
     segmentsMax: number;
     setupComplete: boolean;
+    enabled: boolean;
 }
 
 export interface SanitisedDaemon {
     createdAt: number;
     cpuArch?: string;
     id: string;
-    ipv4?: Ip;
-    ipv6?: Ip;
+    ips: Ip[];
     region?: Region;
     setupComplete: boolean;
 }
@@ -34,8 +33,7 @@ export function sanitiseDaemon(daemon: Partial<Daemon>): SanitisedDaemon {
         cpuArch: daemon.cpuArch,
         createdAt: daemon.createdAt,
         id: daemon.id,
-        ipv4: daemon.ipv4,
-        ipv6: daemon.ipv6,
+        ips: daemon.ips,
         region: daemon.region,
         setupComplete: daemon.setupComplete
     };
