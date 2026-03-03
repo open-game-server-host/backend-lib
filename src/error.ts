@@ -37,8 +37,8 @@ httpErrors.set("general/unspecified", HTTPStatus.SERVER_ERROR);
 
 
 export class OGSHError extends Error {
-    constructor(readonly ogshError: Errors, readonly info?: string | Error) {
-        super(`${info}`);
+    constructor(readonly ogshError: Errors, readonly devDebug?: string | Error) {
+        super(`${devDebug}`);
     }
 }
 
@@ -48,11 +48,11 @@ export function getErrorHttpStatus(error: Errors): number {
 
 interface ErrorResponseBody {
     error: Errors;
-    info?: string;
+    devDebug?: string;
 }
 export function formatErrorResponseBody(error: Error | OGSHError): ErrorResponseBody {
     return {
         error: error instanceof OGSHError ? (error as OGSHError).ogshError : "general/unspecified",
-        info: error.message // TODO only return this in a dev environment
+        devDebug: error.message // TODO only return this in a dev environment
     }
 }
