@@ -10,7 +10,9 @@ export interface Container {
     id: string;
     locked: boolean;
     name: string;
-    ports: ContainerPort[];
+    ports: {
+        [id: string]: ContainerPort[];
+    }
     runtime: string;
     segments: number;
     terminateAt?: number;
