@@ -1,10 +1,11 @@
 import { ContainerPort } from "./containerPort";
+import { SanitisedDaemon } from "./daemon";
 
 export interface Container {
     appId: string;
     contractLengthDays: number;
     createdAt: number;
-    daemonId: string;
+    daemon: SanitisedDaemon;
     free: boolean;
     id: string;
     locked: boolean;
