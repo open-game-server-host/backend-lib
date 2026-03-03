@@ -33,5 +33,7 @@ export interface ContainerAppData {
 }
 
 export interface ContainerPortsData {
-    ports: ContainerPort[];
+    ports: {
+        [ipId: string]: ContainerPort[];
+    }
 }
