@@ -10,6 +10,7 @@ interface Global {
             [currency: string]: number;
         }
     },
+    maxSegments: number;
     regions: {
         [twoDigitIsoCode: string]: {
             name: string;
