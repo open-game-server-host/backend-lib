@@ -1,6 +1,7 @@
 export * from "./config/apiConfig";
 export * from "./config/appsConfig";
 export * from "./config/config";
+export * from "./config/containerConfig";
 export * from "./config/globalConfig";
 
 export * from "./container/runtime";
