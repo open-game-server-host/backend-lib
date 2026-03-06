@@ -24,3 +24,20 @@ export function parseEnvironmentVariables(environmentVariables: EnvironmentVaria
     }
     return parsedValues;
 }
+
+export type Environment =
+    | "dev"
+    | "staging"
+    | "live"
+;
+
+const parsed = parseEnvironmentVariables([
+    {
+        key: "OGSH_ENV",
+        defaultValue: "dev"
+    }
+]);
+
+export function getEnvironment(): Environment {
+    return parsed.get("OGSH_ENV") as Environment;
+}

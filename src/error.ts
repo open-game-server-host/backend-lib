@@ -1,3 +1,4 @@
+import { getEnvironment } from "./env";
 import { HTTPStatus } from "./http/httpStatus";
 
 export type Errors =
@@ -53,6 +54,6 @@ interface ErrorResponseBody {
 export function formatErrorResponseBody(error: Error | OGSHError): ErrorResponseBody {
     return {
         error: error instanceof OGSHError ? (error as OGSHError).ogshError : "general/unspecified",
-        devDebug: error.message // TODO only return this in a dev environment
+        devDebug: getEnvironment() !== "live" ? error.message : undefined
     }
 }
