@@ -4,6 +4,7 @@ import { Config } from "./config";
 interface Api {
     url: string;
     websocketUrl: string;
+    maxWebsocketConnectionsPerUserPerContainer: number; // default 3
 }
 
 const env = parseEnvironmentVariables([
