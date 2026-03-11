@@ -5,6 +5,7 @@ interface Api {
     url: string;
     websocketUrl: string;
     maxWebsocketConnectionsPerUserPerContainer: number; // default 3
+    maxPaginatedResults: number; // default 10
 }
 
 const env = parseEnvironmentVariables([
