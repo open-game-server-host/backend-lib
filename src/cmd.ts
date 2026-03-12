@@ -9,16 +9,18 @@ export function cmd(command: string, silent: boolean = false): string {
     return output;
 }
 
-export async function asyncCmd(command: string, silent: boolean = false) {
+export async function asyncCmd(command: string, silent: boolean = false): Promise<string> {
     const child = exec(command);
     if (!silent) {
         child.stdout?.pipe(process.stdout);
         child.stderr?.pipe(process.stderr);
     }
-    await new Promise<void>((res, rej) => {
+    return new Promise<string>((res, rej) => {
+        let output = "";
+        child.on("message", msg => output += msg);
         child.on("exit", () => {
             child.removeAllListeners();
-            res();
+            res(output);
         });
         child.on("error", () => {
             child.removeAllListeners();
