@@ -24,6 +24,7 @@ export type Errors =
     | "container/invalid-name"
     | "container/invalid-segments"
     | "container/terminate-failed"
+    | "container/invalid-runtime"
 
     | "app/not-found"
     | "app/variant-not-found"
@@ -45,7 +46,7 @@ export type Errors =
 
     | "api/request-failed"
     
-    | "env/value-invalid"
+    | "env/invalid-value"
 
     | "daemon/invalid"
     | "daemon/not-found"
@@ -54,16 +55,19 @@ export type Errors =
     | "daemon/invalid-os"
     | "daemon/invalid-segments"
     | "daemon/invalid-port-range"
+    | "daemon/disconnected"
 
     | "region/no-availability"
     | "region/invalid"
     | "region/not-found"
 
     | "db/query-failed"
+    | "db/connection-failed"
 
     | "ip/not-found"
 
     | "user/already-exists"
+    | "user/not-found"
 ;
 
 const httpErrors = new Map<Errors, number>();
