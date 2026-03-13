@@ -20,12 +20,17 @@ export type Errors =
     | "container/pid-not-found"
     | "container/unauthorized"
     | "container/action-queue-limit"
+    | "container/segment-limit"
+    | "container/invalid-name"
+    | "container/invalid-segments"
+    | "container/terminate-failed"
 
     | "app/not-found"
     | "app/variant-not-found"
     | "app/version-not-found"
     | "app/startup-files-not-found"
     | "app/download-failed"
+    | "app/no-default-runtime"
 
     | "ws/invalid-params"
     | "ws/invalid-body"
@@ -39,6 +44,26 @@ export type Errors =
     | "auth/invalid"
 
     | "api/request-failed"
+    
+    | "env/value-invalid"
+
+    | "daemon/invalid"
+    | "daemon/not-found"
+    | "daemon/invalid-cpu-arch"
+    | "daemon/invalid-cpu-name"
+    | "daemon/invalid-os"
+    | "daemon/invalid-segments"
+    | "daemon/invalid-port-range"
+
+    | "region/no-availability"
+    | "region/invalid"
+    | "region/not-found"
+
+    | "db/query-failed"
+
+    | "ip/not-found"
+
+    | "user/already-exists"
 ;
 
 const httpErrors = new Map<Errors, number>();
