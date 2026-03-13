@@ -37,6 +37,7 @@ export type Errors =
     | "ws/invalid-body"
     | "ws/connection-limit"
     | "ws/invalid-route"
+    | "ws/already-connected"
 
     | "http/invalid-headers"
     | "http/invalid-body"
