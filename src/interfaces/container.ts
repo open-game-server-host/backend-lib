@@ -5,7 +5,6 @@ export interface Container extends ContainerAppData, ContainerPortsData{
     contractLengthDays: number;
     createdAt: number;
     daemon: SanitisedDaemon;
-    free: boolean;
     id: string;
     locked: boolean;
     name: string;
