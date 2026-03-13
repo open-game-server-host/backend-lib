@@ -19,18 +19,26 @@ export type Errors =
     | "container/storage-monitor-failed"
     | "container/pid-not-found"
     | "container/unauthorized"
+    | "container/action-queue-limit"
 
     | "app/not-found"
     | "app/variant-not-found"
     | "app/version-not-found"
     | "app/startup-files-not-found"
+    | "app/download-failed"
 
     | "ws/invalid-params"
+    | "ws/invalid-body"
     | "ws/connection-limit"
+    | "ws/invalid-route"
 
     | "http/invalid-headers"
+    | "http/invalid-body"
+    | "http/invalid-params"
 
     | "auth/invalid"
+
+    | "api/request-failed"
 ;
 
 const httpErrors = new Map<Errors, number>();
