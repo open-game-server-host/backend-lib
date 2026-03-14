@@ -10,7 +10,6 @@ export * from "./http/httpStatus";
 export * from "./http/httpUtils";
 
 export * from "./interfaces/container";
-export * from "./interfaces/containerAction";
 export * from "./interfaces/containerPort";
 export * from "./interfaces/daemon";
 export * from "./interfaces/ip";
