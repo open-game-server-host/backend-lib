@@ -111,9 +111,8 @@ export function respond(res: Response, data?: unknown) {
         res.send();
         return;
     }
-    res.send(JSON.stringify({
-        data
-    }));
+
+    res.json(data);
 }
 
 export function getUrlQueryParams<T>(url: string): T {
